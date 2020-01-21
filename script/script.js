@@ -1,3 +1,5 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const search = document.querySelector('.search'),
@@ -260,11 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
         cookieQuery();
     };
 
-    const removeGoods = (id) => {
+    const removeGoods = (id, elem) => {
         delete goodsBasket[id];
         checkCount();
         cookieQuery();
         getGoods(renderBasket, showCardBasket);
+        elem.closest('.goods').remove();
     };
 
 
